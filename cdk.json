@@ -1,0 +1,3 @@
+{
+  "app": "npx ts-node bin/isolated_network_experiment.ts"
+}
