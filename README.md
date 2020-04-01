@@ -2,7 +2,7 @@ This CDK app deploys an isolated network on AWS that does not have restrictive p
 
 This creates an EC2 nad VPC endpoints for SSM so that Session Manager can be used to access the EC2.  It also creates VPC endpoints for SQS and S3 and creates a queue and bucket.
 
-<img src="https://raw.githubusercontent.com/summitroute/isolated_network_experiment/master/docs/experimental_isolated_network.png" width=100% alt="Network layout">
+<img src="https://raw.githubusercontent.com/summitroute/isolated_network_experiment/master/docs/experimental_isolated_network.png" alt="Network layout">
 
 # Usage
 ## Prerequisites
