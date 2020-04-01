@@ -12,7 +12,12 @@ This creates an EC2 nad VPC endpoints for SSM so that Session Manager can be use
 ```
 git checkout https://github.com/SummitRoute/isolated_network_experiment.git
 cd isolated_network_experiment
-aws-vault exec YOUR_TEST_ENVIRONMENT --no-session --
 npm install
+# Then, while in an AWS session, such as through aws-vault
 cdk deploy
+```
+
+## Uninstalling
+```
+cdk destroy
 ```
