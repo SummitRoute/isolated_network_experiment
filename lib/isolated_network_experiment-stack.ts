@@ -79,5 +79,11 @@ export class IsolatedNetworkExperimentStack extends cdk.Stack {
     // Create S3 bucket
     // This get's randomly named as something like `isolatednetworkexperimentstack-bucket43879c90-28dp1zfygem56`
     const bucket = new s3.Bucket(this, 'bucket');
+
+    const access_point = new s3.CfnAccessPoint(this, 'accesspoint', {
+      name: 'isolatedaccesspoint',
+      bucket: bucket.bucketName,
+      vpcConfiguration: {vpcId: vpc.vpcId},
+    });
   }
 }
