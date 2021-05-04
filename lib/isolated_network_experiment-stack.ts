@@ -1,8 +1,9 @@
 import * as cdk from '@aws-cdk/core';
+import * as s3 from '@aws-cdk/aws-s3';
 const iam = require('@aws-cdk/aws-iam');
 const ec2 = require('@aws-cdk/aws-ec2');
-const s3 = require('@aws-cdk/aws-s3');
-const sqs = require('@aws-cdk/aws-sqs');
+//const s3 = require('@aws-cdk/aws-s3');
+//const sqs = require('@aws-cdk/aws-sqs');
 
 
 export class IsolatedNetworkExperimentStack extends cdk.Stack {
@@ -24,10 +25,10 @@ export class IsolatedNetworkExperimentStack extends cdk.Stack {
     });
 
     // Create VPC interface endpoints
-    vpc.addInterfaceEndpoint('sqs', {
-      service: ec2.InterfaceVpcEndpointAwsService.SQS
+//    vpc.addInterfaceEndpoint('sqs', {
+//      service: ec2.InterfaceVpcEndpointAwsService.SQS
       // Default policy is Allow * on * from *, which we want for this demo.
-    });
+//    });
 
     vpc.addInterfaceEndpoint('SSM', {
       service: ec2.InterfaceVpcEndpointAwsService.SSM,
@@ -74,16 +75,16 @@ export class IsolatedNetworkExperimentStack extends cdk.Stack {
     });
 
     // Create SQS
-    const queue = new sqs.Queue(this, 'queue');
+//    const queue = new sqs.Queue(this, 'queue');
 
     // Create S3 bucket
     // This get's randomly named as something like `isolatednetworkexperimentstack-bucket43879c90-28dp1zfygem56`
-    const bucket = new s3.Bucket(this, 'bucket');
+    const bucket = new s3.Bucket(this, 'bucket');;
 
-    const access_point = new s3.CfnAccessPoint(this, 'accesspoint', {
-      name: 'isolatedaccesspoint',
-      bucket: bucket.bucketName,
-      vpcConfiguration: {vpcId: vpc.vpcId},
-    });
+//  const access_point = new s3.CfnAccessPoint(this, 'accesspoint', {
+//    name: 'isolatedaccesspoint',
+//    bucket: bucket.bucketName,
+//    vpcConfiguration: {vpcId: vpc.vpcId},
+//  });
   }
 }
